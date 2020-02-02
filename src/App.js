@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Navbar from './components/navbars/Navbar';
+import Footer from './components/footer/Footer';
+// import MainScreen from './components/carousel/SlideCarousel';
+import Header from './components/header/Header';
+import {Components} from './pages/Components';
+import { Provider } from "react-redux";
+import dataStore  from "./store";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Header/>
+          <Navbar/>
+          <Provider store={ dataStore }>
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/contact' component={Contact}/>
+              <Route path='/about' component={About}/>
+              {/* <Route path='/board' component={Board}/>
+              <Route path='/boardform' component={BoardForm}/> */}
+              {/* <Route path='/formValidate' component={Form}/> */}
+              <Route path='/components' component={Components}/>
+            </Switch>
+          </Provider>
+          <Footer/>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

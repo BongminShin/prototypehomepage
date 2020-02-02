@@ -1,0 +1,33 @@
+.progress-bar-linear {
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.progress-bar-skills {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #333;
+  }
+  
+  .progress-bar-text {
+      display: inline-block;
+      margin-left: 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 700;
+  }
+
+  .progress-percentage {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+  }
+
+  .filler {
+    background: #666;
+    height: 100%;
+    border-radius: inherit;
+    transition: width .2s ease-in;
+  }
